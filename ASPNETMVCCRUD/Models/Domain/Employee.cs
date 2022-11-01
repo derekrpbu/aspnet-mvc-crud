@@ -13,8 +13,5 @@
         public DateTime DateOfBirth { get; set; }
 
         public string Department { get; set; }
-
-
-
     }
 }

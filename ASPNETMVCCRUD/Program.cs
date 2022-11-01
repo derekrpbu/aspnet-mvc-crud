@@ -1,4 +1,5 @@
 using ASPNETMVCCRUD.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,8 @@ builder.Services.AddControllersWithViews(); // Tell services we are using contro
 
 // Inject DbContext into Services
 builder.Services.AddDbContext<MCVDemoDbContext>(options =>
-    )
+    options.UseSqlServer(builder.Configuration
+    .GetConnectionString("McvDemoConnectionString")));
 
 var app = builder.Build();
 
